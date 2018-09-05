@@ -20,3 +20,17 @@
 # test_set = test_datagen.flow_from_directory('test_set',target_size = (64, 64),batch_size = 32,class_mode = 'binary')
 
 # classifier.fit_generator(training_set,steps_per_epoch = 8000,epochs = 25,validation_data = test_set,validation_steps = 2000)
+
+
+import os
+par_dir='/home/yash/github/t_cLASSIFICTION/Layer/layer1/'
+train_labels = os.listdir(par_dir)
+
+# print(train_labels)
+for label in train_labels:
+	print par_dir+label
+	images=os.listdir(par_dir+label)
+	print len(images)
+	for image in images:
+		print par_dir+label+image
+		break
