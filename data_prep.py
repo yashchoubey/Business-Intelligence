@@ -14,14 +14,27 @@ for label in train_labels:
 		file= par_dir+label+'/'+image
 		image = cv2.imread(file)
 		# print image.shape
-		image = cv2.resize(image, (200,200))
+		image = cv2.resize(image, (100,100))
 		image_list.append(image)
 		label_list.append(label_dict[label])
 		# print par_dir+label+image
 		# break
+
 # print len(image_list)
 a=np.asarray(image_list)
-a=a.reshape(27587,120000)
+
+#ruptured_skin
+# 3795
+# deformed_double
+# 27
+# others
+# 23765
+# 27587
+# 3795+27+3800=7622
+# 100*100*3
+# a=a.reshape(27587,120000)
+
+a=a.reshape(27587,30000)
 del image_list
 from tempfile import TemporaryFile
 outfile = TemporaryFile()
