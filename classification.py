@@ -5,8 +5,6 @@ from keras.layers import PReLU
 from keras.layers import MaxPooling2D
 from keras.layers.core import Dense, Dropout, Activation, Flatten
 
-
-
 import gc
 import numpy as np
 import pandas as pd
@@ -16,15 +14,12 @@ from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 
 import numpy as np
-	
 
 # input image dimensions
 img_rows, img_cols = 100,100#200,200
 
 # number of channels
 img_channels = 1
-
-
 
 immatrix = np.load('images_level1.npy')
 print (immatrix.shape)
@@ -90,7 +85,7 @@ model = Sequential()
 model.add(Convolution2D(128, (3, 3),input_shape=(3,img_rows,img_cols)))
 model.add(PReLU(alpha_initializer = 'zeros',weights = None))
 #model.add(BatchNormalization())
-model.add(Conv2D(128, (3, 3), data_format='channels_first'))
+model.add(Convolution2D(128, (3, 3), data_format='channels_first'))
 #model.add(Dropout(0.5))	
 model.add(PReLU(alpha_initializer = 'zeros',weights = None))
 #model.add(BatchNormalization())
