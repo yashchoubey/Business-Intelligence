@@ -1,3 +1,5 @@
+*.caffemodel
+*.solverstate
 *.npy
 *.h5
 # Byte-compiled / optimized / DLL files
